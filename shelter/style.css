@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: auto;
+  width: 1280px;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+.nav-link {
+  text-decoration: none;
+  padding: 35px;
+}
+.start-screen {
+  position: relative;
+  width: 1280px;
+  height: 908px;
+  background: url(assets/start-screen-gradient.png) 1280px 908px,
+    url(assets/start-screen-background.png);
+}
+.start-screen-puppy {
+  width: 698px;
+  height: 728px;
+  position: absolute;
+  right: 40px;
+  bottom: 0px;
+}
+.start-screen-content {
+  width: 460px;
+  height: 322px;
+  position: absolute;
+  left: 40px;
+  bottom: 243px;
+}
+header {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 60px;
+}
+

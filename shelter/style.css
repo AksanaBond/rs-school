@@ -26,6 +26,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
   margin: auto;
   width: 1280px;
@@ -52,6 +55,10 @@ body {
 .nav-link:hover {
   color: #fafafa;
   text-decoration: underline #f1cdb3 3px;
+}
+.nav-list li:first-child {
+    text-decoration: underline #f1cdb3 3px;
+    pointer-events: none;
 }
 .start-screen {
   position: relative;

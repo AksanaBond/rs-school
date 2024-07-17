@@ -57,8 +57,7 @@ body {
   position: relative;
   width: 1280px;
   height: 908px;
-  background: url(assets/start-screen-gradient.png) 1280px 908px,
-    url(assets/start-screen-background.png);
+  background: url(assets/start-screen-background.png), url(assets/start-screen-gradient.png) 1280px 908px;
 }
 .start-screen-puppy {
   width: 698px;
@@ -439,7 +438,6 @@ footer {
     top: 40px;
     display: flex;
     justify-content: space-between;
-    gap: 160px;
     
 }
 #footer-content h3 {
@@ -451,6 +449,7 @@ footer {
     line-height: 45.5px;
     letter-spacing: 0.06em;
     margin-top: 16px;
+    margin-bottom: 40px;
 }
 #footer-content h4 {
     font-family: "Georgia";
@@ -459,13 +458,47 @@ footer {
     font-weight: normal;
     font-size: 20px;
     line-height: 23px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     display: inline;
     margin-left: 20px;
+    margin-top: 33px;
 }
-.footer-puppy {
+.phone {
+    display: flex;
+    align-items: center;
+    width: 240px;
+    height: 32px;
+    margin-top: 40px;
+}
+.email {
+    display: flex;
+    align-items: center;
+    width: 252px;
+    height: 32px;
+}
+.footer-puppy img {
     width: 300px;
     height: 310px;
 }
+.footer-items1 {
+    flex-basis: 279px;
+}
+.footer-items2 {
+    flex-basis: 302px;
+}
+.boston {
+    display: flex;
+    align-items: center;
+    width: 310px;
+    height: 50px;
+    margin-bottom: 32px;
+}
+.london {
+    display: flex;
+    align-items: center;
+    width: 270px;
+    height: 23px;
+}
+
 
 

@@ -172,7 +172,7 @@ header {
 #about-pets {
   width: 300px;
   height: 408px;
-  top: 50px;
+  top: 80px;
   left: 215px;
   position: absolute;
 }
@@ -237,6 +237,12 @@ header {
   width: 1200px;
   height: 435px;
   justify-content: space-between;
+  gap: 53px;
+}
+.cardthree {
+  display: flex;
+  justify-content: space-between;
+  gap: 90px;
 }
 .cards-container {
   display: flex;
@@ -277,22 +283,35 @@ header {
   height: 270px;
   border-radius: 9px;
 }
-.card button {
+.button-secondary {
   background-color: #fafafa;
   border-radius: 100px;
   border: 2px solid #f1cdb3;
-  padding: 15px, 45px, 15px, 45px;
+  padding: 15px 45px;
   color: #292929;
   font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
   font-size: 17px;
   line-height: 22.1px;
   width: 187px;
   height: 52px;
   text-align: center;
+  letter-spacing: 0.033rem;
 }
 .card p {
-  margin-bottom: 30px;
-  margin-top: 30px;
+  font-family: "Georgia";
+  color: #545454;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 22.72px;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  margin-bottom: 29px;
+  margin-top: 28px;
+  height: 23px;
+  padding-bottom: 1px;
 }
 .button-primary-get {
   background-color: #f1cdb3;
@@ -301,12 +320,15 @@ header {
   padding: 15px, 45px, 15px, 45px;
   color: #292929;
   font-family: "Georgia";
+  font-weight: normal;
+  font-style: normal;
   font-size: 17px;
   line-height: 22.1px;
+  letter-spacing: 0.065rem;
   width: 261px;
   height: 52px;
   display: block;
-  margin: 60px 469px;
+  margin: 60px 467px;
 }
 .button-arrow {
   border: #f1cdb3 2px solid;
@@ -336,39 +358,36 @@ header {
   font-weight: normal;
   font-size: 35px;
   line-height: 45.5px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   width: 308px;
   height: 90px;
   text-align: center;
   margin: 0 446px 60px;
 }
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   width: 1026px;
   height: 281px;
   position: absolute;
   top: 150px;
   left: 87px;
-  border: #292929 solid;
 }
-.list > div {
-  flex: 0 1 calc(20% - 10px);
+.list-firstcolumn {
+  display: flex;
+  justify-content: space-between;
 }
-
-.list > div > svg {
-  height: 55;
-  flex: 0 1 calc(20% - 10px);
+.list-secondcolumn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 58px;
+  margin-left: 3px;
 }
-
-.list > div > * {
+.list svg {
   display: block;
   margin: 0 auto;
-  padding: 5px;
-  text-align: center;
 }
-
+.collars-leashes h4 {
+  margin-top: 33px;
+}
 .list h4 {
   font-family: "Georgia";
   color: #545454;
@@ -376,21 +395,36 @@ header {
   font-weight: normal;
   font-size: 20px;
   line-height: 23px;
-  letter-spacing: 0.06em;
+  margin-bottom: 0%;
+  margin-top: 30px;
+  letter-spacing: 0.069rem;
+  text-align: justify;
 }
 .pet-food {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
   width: 82px;
   height: 113px;
 }
 .transportation {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
   width: 150px;
   height: 113px;
 }
 .toys {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
   width: 60px;
   height: 113px;
 }
 .bowlsandcups {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
   width: 153px;
   height: 113px;
 }
@@ -402,6 +436,7 @@ header {
 .donation-content {
   width: 915px;
   height: 282px;
+  display: flex;
   position: absolute;
   top: 80px;
   left: 183px;
@@ -409,8 +444,8 @@ header {
 .donation-content img {
   width: 505px;
   height: 261px;
-  float: left;
   margin-right: 30px;
+  margin-top: 11px;
 }
 .donation-content h3 {
   font-family: "Georgia";
@@ -441,6 +476,7 @@ header {
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
+  margin-top: 20px;
 }
 .creditcard {
   background-color: #f1cdb3;
@@ -466,16 +502,15 @@ header {
   margin-left: 15px;
 }
 footer {
-  position: relative;
   height: 350px;
-  background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), url(assets/footer-gradient-background.png) 100% 350px,
-    url(assets/footer-background.png) 100% 350px;
+  position: relative;
+  background: url(assets/footer-gradient-background.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%),
+    url(assets/footer-background.png);
 }
 #footer-content {
-  position: relative;
   width: 1200px;
   height: 310px;
-  margin: 0 auto;
+  position: absolute;
   left: 40px;
   top: 40px;
   display: flex;
@@ -490,7 +525,7 @@ footer {
   line-height: 45.5px;
   letter-spacing: 0.06em;
   margin-top: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 34px;
 }
 #footer-content h4 {
   font-family: "Georgia";
@@ -504,25 +539,42 @@ footer {
   margin-left: 20px;
   margin-top: 33px;
 }
+.footer-items2 h3 {
+  margin-left: 4px;
+  margin-bottom: 34px;
+}
 .phone {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   width: 240px;
   height: 32px;
   margin-top: 40px;
 }
+.phone a {
+  text-decoration: none;
+  color: #f1cdb3;
+}
 .email {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  color: #f1cdb3;
   width: 252px;
   height: 32px;
 }
+  .email a {
+    text-decoration: none;
+    color: #f1cdb3;
+  }
+
 .footer-puppy img {
   width: 300px;
   height: 310px;
 }
 .footer-items1 {
   flex-basis: 279px;
+}
+.footer-items1 h3 {
+  margin-bottom: 40px;
 }
 .footer-items2 {
   flex-basis: 302px;
@@ -534,9 +586,17 @@ footer {
   height: 50px;
   margin-bottom: 32px;
 }
+.boston a {
+  text-decoration: none;
+    color: #f1cdb3;
+}
 .london {
   display: flex;
   align-items: center;
   width: 270px;
   height: 23px;
+}
+.london a {
+  text-decoration: none;
+    color: #f1cdb3;
 }

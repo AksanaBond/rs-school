@@ -38,12 +38,32 @@ body {
   margin: 0 auto;
   position: relative;
 }
+.header-ourpets {
+  width: 1280px;
+  height: 120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.main-ourpets {
+  background-color: #f6f6f6;
+}
 .nav-list {
   list-style: none;
   display: flex;
   justify-content: space-between;
   width: 443px;
   height: 27px;
+  padding-left: 0;
+}
+.nav-list-ourpets {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 443px;
+  height: 27px;
+  margin-top: 46px;
+  margin-right: 40px;
   padding-left: 0;
 }
 .nav-link {
@@ -59,6 +79,15 @@ body {
   color: #fafafa;
   text-decoration: underline #f1cdb3 3px;
   text-underline-offset: 6px;
+}
+.nav-link-ourpets {
+  text-decoration: none;
+  color: #545454;
+  font-family: "Arial";
+  font-style: normal;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.005em;
 }
 .nav-list li:first-child {
   text-decoration: underline #f1cdb3 3px;
@@ -123,7 +152,7 @@ body {
   height: 52px;
   letter-spacing: 1px;
 }
-header {
+.header-main {
   position: absolute;
   top: 30px;
   left: 0px;
@@ -143,6 +172,28 @@ header {
   line-height: 35.2px;
   letter-spacing: 0.06em;
   margin-bottom: 10px;
+}
+.logo-title-ourpets {
+  font-family: "Georgia";
+  color: #545454;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 35.2px;
+  margin-top: 30px;
+  margin-left: 40px;
+  letter-spacing: 0.06em;
+}
+.logo-subtitile-ourpets {
+  font-family: "Arial";
+  color: #292929;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 14.95px;
+  letter-spacing: 0.08rem;
+  margin-top: 10px;
+  margin-left: 41px;
 }
 #title {
   width: 184px;
@@ -247,13 +298,32 @@ header {
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   width: 1200px;
   height: 930px;
+  margin-left: 40px;
 }
 .pets {
+  width: 1280px;
   height: 1342px;
+  margin: 0 auto;
+  border-top: 1px solid transparent;
 }
 .pets-content h3 {
+  font-family: "Georgia";
+  color: #545454;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 45.5px;
+  letter-spacing: 0.06em;
+  width: 400px;
+  height: 90px;
+  text-align: center;
+}
+.ourpetsh3 {
+  margin: 80px auto 45px;
   font-family: "Georgia";
   color: #545454;
   font-style: normal;
@@ -281,13 +351,14 @@ header {
 .card img {
   width: 270px;
   height: 270px;
-  border-radius: 9px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  object-fit: cover;
 }
 .button-secondary {
   background-color: #fafafa;
   border-radius: 100px;
   border: 2px solid #f1cdb3;
-  padding: 15px 45px;
   color: #292929;
   font-family: "Georgia";
   font-style: normal;
@@ -297,7 +368,7 @@ header {
   width: 187px;
   height: 52px;
   text-align: center;
-  letter-spacing: 0.033rem;
+  letter-spacing: 0.07rem;
 }
 .card p {
   font-family: "Georgia";
@@ -599,4 +670,9 @@ footer {
 .london a {
   text-decoration: none;
     color: #f1cdb3;
+}
+.navigation {
+  display: flex;
+  gap: 20px;
+  margin: 45px 470px;
 }

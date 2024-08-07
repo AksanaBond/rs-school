@@ -34,12 +34,13 @@ body {
   position: relative;
 }
 .container {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   position: relative;
 }
 .header-ourpets {
-  width: 1280px;
+  width: 100%;
+  max-width: 1280px;
   height: 120px;
   margin: 0 auto;
   display: flex;
@@ -332,13 +333,12 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 1200px;
-  height: 930px;
-  margin-left: 40px;
+  width: 93.75%;
+  margin: 0 auto;
 }
 .pets {
-  width: 1280px;
-  height: 1342px;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   border-top: 1px solid transparent;
 }
@@ -646,18 +646,14 @@ body {
   margin-left: 15px;
 }
 footer {
-  height: 350px;
-  position: relative;
   background: url(assets/footer-gradient-background.png),
     radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%),
     url(assets/footer-background.png);
 }
 #footer-content {
-  width: 1200px;
-  height: 310px;
-  position: absolute;
-  left: 40px;
-  top: 40px;
+  width: 93.75%;
+  margin: 0 40px 0;
+  padding-top: 40px;
   display: flex;
   justify-content: space-between;
 }
@@ -726,6 +722,7 @@ footer {
 .footer-puppy img {
   width: 300px;
   height: 310px;
+  /*overflow: hidden;*/
 }
 .footer-items1 {
   flex-basis: 279px;
@@ -779,9 +776,11 @@ footer {
   letter-spacing: 0.06em;
 }
 .navigation {
+  width: 340px;
   display: flex;
   gap: 20px;
-  margin: 45px 470px;
+  margin: 45px auto 0;
+  padding-bottom: 100px ;
   cursor: pointer;
 }
 .button-pagination-active {
@@ -809,4 +808,45 @@ footer {
   background-color: #f1cdb3;
   border-radius: 100px;
   border: none;
+}
+@media ( max-width: 1150px){
+  .ourpetsh3 {
+    margin: 80px auto 30px;
+  }
+.cards-container {
+  overflow: hidden;
+}
+.navigation{
+  margin: 40px auto 0;
+  padding-bottom: 76px;
+}
+#footer-content {
+  flex-wrap: wrap;
+  justify-content: center;
+margin-bottom: 0;
+gap: 60px;
+    }
+}
+@media ( max-width: 768px){
+  .cards-container {
+    width: 75.6%;
+    height: 78.8%;
+    gap: 30px 40px;
+  }
+  .lastcard{
+    display: none;
+  }
+  .navigation{
+    margin: 40px auto 0;
+    padding-bottom: 76px;
+  }
+  #footer-content {
+flex-wrap: wrap;
+justify-content: center;
+margin-bottom: 0;
+gap: 60px;
+  }
+}
+@media ( max-width: 320px){
+
 }

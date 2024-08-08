@@ -46,6 +46,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.burger{
+  display: none;
+}
 .main-ourpets {
   background-color: #f6f6f6;
 }
@@ -334,6 +337,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 93.75%;
+  gap: 30px 40px;
   margin: 0 auto;
 }
 .pets {
@@ -355,7 +359,7 @@ body {
   text-align: center;
 }
 .ourpetsh3 {
-  margin: 80px auto 45px;
+  margin: 80px auto 60px;
   font-family: "Georgia";
   color: #545454;
   font-style: normal;
@@ -363,7 +367,6 @@ body {
   font-size: 35px;
   line-height: 45.5px;
   letter-spacing: 0.06em;
-  width: 400px;
   height: 90px;
   text-align: center;
 }
@@ -779,7 +782,7 @@ footer {
   width: 340px;
   display: flex;
   gap: 20px;
-  margin: 45px auto 0;
+  margin: 60px auto 0;
   padding-bottom: 100px ;
   cursor: pointer;
 }
@@ -810,11 +813,26 @@ footer {
   border: none;
 }
 @media ( max-width: 1150px){
+  .nav-list-ourpets {
+    margin-right: 30px;
+  }
+  .logo-title-ourpets h1 {
+    margin-left: 30px;
+  }
+  .logo-subtitile-ourpets {
+    margin-left: 29px;
+    }
   .ourpetsh3 {
     margin: 80px auto 30px;
   }
 .cards-container {
   overflow: hidden;
+  gap: 30px 40px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.lastcard{
+  display: none;
 }
 .navigation{
   margin: 40px auto 0;
@@ -823,13 +841,13 @@ footer {
 #footer-content {
   flex-wrap: wrap;
   justify-content: center;
-margin-bottom: 0;
-gap: 60px;
+margin: 0 auto 0;
+gap: 61px;
+padding-top: 15px;
     }
 }
-@media ( max-width: 768px){
+@media ( max-width: 767px){
   .cards-container {
-    width: 75.6%;
     height: 78.8%;
     gap: 30px 40px;
   }
@@ -846,7 +864,90 @@ justify-content: center;
 margin-bottom: 0;
 gap: 60px;
   }
+  .nav-list-ourpets {
+display: none;
+  }
+  .burger {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    justify-content: flex-end;
+    margin: 49px 20px;
+  }
+  .burger-line {
+    background: #000;
+    width: 100%;
+    height: 2px;
+  }
+  .burger::before, .burger::after {
+    content: "";
+    position: absolute;
+    background: #000;
+    width: 100%;
+    height: 2px;
+  }
+  .burger::before {
+top: 0;
+  }
+  .burger::after{
+    bottom: 0;
 }
-@media ( max-width: 320px){
+}
+@media ( max-width: 420px){
+  .ourpetsh3 {
+    font-size: 25px;
+    margin: 42px auto 15px;
+    line-height: 32.5px
+}
+.footer-items1 h3 {
+  font-size: 25px;
+  line-height: 32.5px;
+  text-align:center;
+  margin: 0 auto 40px;
+  width: 86.875%;
+}
+.footer-items2 h3 {
+  font-size: 25px;
+  line-height: 32.5px;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  margin: 0 auto 40px;
+  width: 84.375%;
+}
+.footer-puppy img{
+  width: 260px;
+  height: 269px;
+}
+#footer-content {
+  margin: 0 10px 0;
+  padding-top: 30px;
+  gap: 40px;
+}
+.navigation {
+  width: 300px;
+  gap: 10px;
+  margin-bottom: 0;
+  padding-bottom: 42px;
+}
+.lastcard320 {
+  display: none;
+}
+.email {
+  margin: 40px auto;
+}
+.phone {
+  margin: 40px auto 0;
+}
+.cards-container {
+justify-content: center;
+}
+.logo-title-ourpets h1{
+  margin-left: 20px;
+}
+.logo-subtitile-ourpets {
+margin-left: 21px;
+}
+}
 
-}

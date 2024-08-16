@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cozy House</title>
 	<link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stylemenu.css" />
 	<link rel="icon" type="image/png" href="assets/icons8-dogs-stickers-32.png" />
 </head>
-
 <body>
 	<header class="header-main">
 		<div class="logo">
@@ -21,6 +21,16 @@
 				</div>
 			</a>
 		</div>
+        <div class="pop-up-menu">
+            <div class="mobile-menu">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="menu-link">About the shelter</a></li>
+                    <li class="nav-item"><a href="our-pets.html" class="menu-link">Our pets</a></li>
+                    <li class="nav-item"><a href="#help" class="menu-link">Help the shelter</a></li>
+                    <li class="nav-item"><a href="#footer-content" class="menu-link">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
 		<nav class="nav">
 			<ul class="nav-list">
 				<li class="nav-item"><a href="#" class="nav-link">About the shelter</a></li>
@@ -29,12 +39,7 @@
 				<li class="nav-item"><a href="#footer-content" class="nav-link">Contacts</a></li>
 			</ul>
 			<div class="burger-menu">
-				<svg width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<line y1="21" x2="30" y2="21" stroke="#F1CDB3" stroke-width="2" />
-					<line y1="11" x2="30" y2="11" stroke="#F1CDB3" stroke-width="2" />
-					<line y1="1" x2="30" y2="1" stroke="#F1CDB3" stroke-width="2" />
-				</svg>
-
+				<span class="burger-line"></span>
 			</div>
 		</nav>
 	</header>
@@ -423,6 +428,7 @@
 			</div>
 		</div>
 	</footer>
+    <script src="main.js"></script>
 </body>
 
 </html>

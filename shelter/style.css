@@ -175,6 +175,8 @@ body {
   letter-spacing: 1px;
   cursor: pointer;
   transition: background-color 0.5s ease;
+  position: relative;
+  z-index: 0;
 }
 .button-primary:hover {
   background-color: #fddcc4;
@@ -1224,7 +1226,7 @@ footer {
   }
 
   .burger-menu {
-    display: block;
+    cursor: pointer;
   }
 
   .help-content {
@@ -1518,6 +1520,37 @@ footer {
     top: 0;
   }
   .burger::after {
+    bottom: 0;
+  }
+  /*стиль для бургер на 767 px;*/
+  .burger-menu {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition: transform 0.3 ease-in-out;
+    z-index: 100;
+  }
+  .burger-line {
+    background:#F1CDB3;
+    width: 100%;
+    height: 2px;
+  }
+  .burger-menu::before,
+  .burger-menu::after {
+    content: "";
+    position: absolute;
+    background:#F1CDB3;
+    width: 100%;
+    height: 2px;
+  }
+  .burger-menu::before {
+    top: 0;
+  }
+  .burger-menu::after {
     bottom: 0;
   }
 }

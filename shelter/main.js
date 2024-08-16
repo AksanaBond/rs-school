@@ -4,3 +4,6 @@ const menu = document.querySelector('.mobile-menu');
 burger.addEventListener('click', () => {
     document.body.classList.toggle('open');
 });
+pop_up_menu.addEventListener('click', () => {
+    document.body.classList.toggle('open');
+});

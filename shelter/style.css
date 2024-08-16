@@ -1531,13 +1531,14 @@ footer {
     position: relative;
     justify-content: flex-end;
     cursor: pointer;
-    transition: transform 0.3 ease-in-out;
+    transition: all 0.3s ease;
     z-index: 100;
   }
   .burger-line {
     background:#F1CDB3;
     width: 100%;
     height: 2px;
+    transition: all 0.3s ease-in-out;
   }
   .burger-menu::before,
   .burger-menu::after {

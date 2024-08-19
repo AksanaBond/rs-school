@@ -11,8 +11,13 @@
    right: -320px;
     width: 320px;
     height: 100%;
-    background-color: #292929;
     transition: all 0.5s ease-in-out;
+}
+.mobile-menu-main {
+    background-color: #292929;
+}
+.mobile-menu-ourpets {
+    background-color: #fafafa;
 }
 .nav-menu {
     list-style: none;
@@ -33,22 +38,35 @@
     font-size: 32px;
     line-height: 51.2px;
     letter-spacing: 0.005em;
-    color: #CDCDCD;
     text-align: center;
     transition: color 0.3s ease;
 }
-.menu-link:hover {
+.menu-link-main {
+    color: #CDCDCD;
+}
+.menu-link-ourpets {
+    color:#545454;
+}
+.menu-link-main:hover {
     color: #fafafa;
+  }
+  .menu-link-ourpets:hover {
+    color: #292929;
   }
   .menu-link:active {
     text-decoration: underline #f1cdb3 3px;
     text-underline-offset: 6px;
 }
-.nav-menu li:first-child {
+.nav-menu-main li:first-child {
     text-decoration: underline #f1cdb3 3px;
     pointer-events: none;
     text-underline-offset: 10px;
 }
+.nav-menu-ourpets li:nth-child(2) {
+    text-decoration: underline #f1cdb3 3px;
+    pointer-events: none;
+    text-underline-offset: 7px;
+  }
 /* стили для открытого меню */
 .open .pop-up-menu {
     width: 100%;
@@ -67,12 +85,23 @@
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #292929;
     transition: right 0.5s ease-in-out;
 }
 .open .burger-menu {
     transform: rotate(90deg);
     transition: all 0.3s ease;
 }
+.open .burger {
+    transform: rotate(90deg);
+    transition: all 0.3s ease;
+}
+body.open {
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+}
+.header-main .open {
+    position: relative;
+  }
 
 

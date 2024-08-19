@@ -1,0 +1,90 @@
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  background: #292929;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.modal img {
+  width: 497px;
+  height: 497px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+/*.modal_open*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  border-radius: 9px;
+  z-index: 1000;
+  width: 70.3125%;
+  height: 500px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  cursor: default;
+  /*overflow-y: auto; - hides close button*/
+}
+.modal_content {
+  font-family: "Georgia";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 35px;
+  line-height: 45.5px;
+  padding-left: 29px;
+  overflow-y: auto;
+}
+.modal_content_h3{
+    font-size: 35px;
+  line-height: 45.5px;
+  font-weight: normal;
+  font-style: normal;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  letter-spacing: 0.18rem;
+
+}
+.modal_content h4 {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: normal;
+  font-style: normal;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.modal_content p {
+  font-size: 15px;
+  line-height: 16.5px;
+  padding-right: 20px;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 0.06rem;
+}
+.modal_content li {
+  font-size: 15px;
+  line-height: 16.5px;
+  font-weight: normal;
+  font-style: normal;
+}
+.modal_close {
+  position: absolute;
+  top: -52px;
+  right: -50px;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+}
+.modal_close_button {
+  width: 52px;
+  height: 52px;
+  border-radius: 100px;
+  border: 2px solid #f1cdb3;
+  background-color: transparent ;
+}

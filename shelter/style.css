@@ -32,6 +32,10 @@ html {
 body {
   margin: auto;
   position: relative;
+  overflow: scroll ;
+}
+body .open {
+  overflow: hidden;
 }
 .container {
   max-width: 1280px;
@@ -193,6 +197,7 @@ body {
   width: 1200px;
   height: 60px;
 }
+
 .logo a {
   text-decoration: none;
 }
@@ -1503,7 +1508,7 @@ footer {
     justify-content: flex-end;
     margin: 49px 20px;
   }
-  .burger-line {
+  .burger-linepets {
     background: #000;
     width: 100%;
     height: 2px;

@@ -62,43 +62,63 @@
           Our friends who<br />
           are looking for a house
         </h3>
+                    <div class="modal">
+                    <div class="modal_close"><button class="modal_close_button"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003Z" fill="#292929"/>
+                            </svg>
+                            </button></div>
+                        <div>
+                            <img src="assets/jennifer.png" alt="dog" id= "modal_img">
+                        </div>
+                        <div class="modal_content">
+                            <h3 class="modal_content_h3" id="modal_name">Jennifer</h3>
+                            <h4><span id="modal_type">Dog </span> - <span id="modal_breed">Labrador</span></h4>
+                            <p id="modal_description">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+                            <ul>
+                                <li> <b>Age: </b><span id="modal_age"> 2 months</span></li>
+                                <li><b>Inoculations: </b> <span id="modal_inoculations">none</span></li>
+                                <li><b>Diseases: </b><span id="modal_diseases">none</span></li>
+                                <li><b>Parasites: </b><span id="modal_parasites">none</span></li>
+                            </ul>
+                        </div>
+                    </div>
         <div class="cards-container">
-          <div class="card">
+          <div class="card" data-name="Katrine">
             <img src="assets/katrine.png" alt="Katrine" />
             <p>Katrine</p>
             <button class="button-secondary">Learn more</button>
           </div>
-          <div class="card">
+          <div class="card" data-name="Jennifer">
             <img src="assets/jennifer.png" alt="Jennifer" />
             <p>Jennifer</p>
             <button class="button-secondary"><span>Learn more</span></button>
           </div>
-          <div class="card">
+          <div class="card" data-name="Woody">
             <img src="assets/woody.png" alt="Woody" />
             <p>Woody</p>
             <button class="button-secondary">Learn more</button>
           </div>
-          <div class="card lastcard320">
+          <div class="card lastcard320" data-name="Sophia">
             <img src="assets/sophia.png" alt="Sophia" />
             <p>Sophia</p>
             <button class="button-secondary">Learn more</button>
           </div>
-          <div class="card lastcard320">
+          <div class="card lastcard320" data-name="Timmy">
             <img src="assets/timmy.png" alt="Timmy" />
             <p>Timmy</p>
             <button class="button-secondary">Learn more</button>
           </div>
-          <div class="card lastcard320">
+          <div class="card lastcard320" data-name="Charly">
             <img src="assets/charly.png" alt="Charly" />
             <p>Charly</p>
             <button class="button-secondary">Learn more</button>
           </div>
-          <div class="card lastcard">
+          <div class="card lastcard" data-name="Scarlett">
             <img src="assets/scarlet.png" alt="scarlet" />
             <p>Scarlett</p>
             <button class="button-secondary">Learn more</button>
           </div>
-          <div class="card lastcard">
+          <div class="card lastcard" data-name="Freddie">
             <img src="assets/freddie.png" alt="freddie" />
             <p>Freddie</p>
             <button class="button-secondary">Learn more</button>
@@ -307,6 +327,7 @@
         </div>
       </div>
     </footer>
+    <div class="overlay"></div>
     <script src="main.js"></script>
   </body>
 </html>

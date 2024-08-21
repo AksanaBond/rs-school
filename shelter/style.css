@@ -9,6 +9,11 @@
   src: url(assets/fonts/georgia/georgia-regular.ttf);
 }
 @font-face {
+  font-family: "Georgia";
+  font-weight: bold;
+  src: url(assets/fonts/georgia/georgia-bold.ttf);
+}
+@font-face {
   font-family: "Arial";
   font-style: normal;
   src: url(assets/fonts/arial/arial-regular.ttf);

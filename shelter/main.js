@@ -126,10 +126,28 @@ const overlay = document.querySelector(".overlay");
 const modal_close = document.querySelector(".modal_close");
 let page = 1;
 const button_pagination = document.querySelector(".button-pagination");
-const button_pagination_active_one = document.querySelector(".button-pagination-active-one");
-const button_pagination_active_too = document.querySelector(".button-pagination-active-too");
-const button_pagination_inactive_too = document.querySelector(".button-pagination-inactive-too");
-const button_pagination_inactive_one = document.querySelector(".button-pagination-inactive-one");
+const button_pagination_active_one = document.querySelector(
+  ".button-pagination-active-one"
+);
+const button_pagination_active_too = document.querySelector(
+  ".button-pagination-active-too"
+);
+const button_pagination_inactive_too = document.querySelector(
+  ".button-pagination-inactive-too"
+);
+const button_pagination_inactive_one = document.querySelector(
+  ".button-pagination-inactive-one"
+);
+let max_page = 6;
+let cardsperpage = 8;
+const svg_inactive_one = document.getElementById("svg-inactive-one");
+const path_inactive_one = svg_inactive_one.querySelector("path");
+const svg_inactive_too = document.getElementById("svg-inactive-too");
+const path_inactive_too = svg_inactive_too.querySelector("path");
+const svg_active_one = document.getElementById("svg-active-one");
+const svg_active_too = document.getElementById("svg-active-too");
+const path_active_one = svg_active_one.querySelector("path");
+const path_active_too = svg_active_too.querySelector("path");
 
 // работа бургер меню
 burger?.addEventListener("click", () => {
@@ -184,17 +202,33 @@ modal_close?.addEventListener("click", () => {
 });
 // работа паггинации массив из 8 карточек
 window.addEventListener("load", () => {
+  const screenWidth = window.innerWidth;
+  if(screenWidth > 768){
+    sethighwidth();
+  }else if(screenWidth < 768 && screenWidth > 600){
+setmediumwidth() 
+console.log ("medium")
+  } else {
+    setsmallwidth()
+    console.log ("small")
+  }
+});
+function fillcardscontainer() {
   const cards_container = document.querySelector(".cards-container");
 
+  while (cards_container.childElementCount > 1) {
+    cards_container.removeChild(cards_container.childNodes[0]);
+  }
+
   const card = document.querySelector(".card");
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < cardsperpage - 1; i++) {
     cards_container.innerHTML += card.outerHTML;
     console.log(cards_container);
   }
-  for ( let i = 0; i <=7; i++){
-    fillcard(cards_container.children[i], (page - 1) * 8 + i);
+  for (let i = 0; i <= cardsperpage - 1; i++) {
+    fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
   }
-});
+}
 
 function fillcard(element, petIndex) {
   console.log(element);
@@ -207,54 +241,222 @@ function fillcard(element, petIndex) {
 }
 // паггинация
 button_pagination_active_one.addEventListener("click", () => {
-  if (page < 6){
-    page ++} 
-    if (page == 6){
-      button_pagination_active_one.classList.add("button-pagination-inactive");
-      button_pagination_active_one.classList.remove("button-pagination-active");
-        button_pagination_active_one.disabled = true;
-        button_pagination_active_too.classList.add("button-pagination-inactive");
-        button_pagination_active_too.classList.remove("button-pagination-active");
-        button_pagination_active_too.disabled = true;
-      }
-      if (page > 1){
-        button_pagination_inactive_too.classList.remove("button-pagination-inactive");
-        button_pagination_inactive_one.classList.remove("button-pagination-inactive");
-        button_pagination_inactive_too.classList.add("button-pagination-active");
-        button_pagination_inactive_one.classList.add("button-pagination-active");
-        button_pagination_inactive_too.disabled = false;
-        button_pagination_inactive_one.disabled = false;
-      }
+  if (page < max_page) {
+    page++;
+  }
+  if (page == max_page) {
+    button_pagination_active_one.classList.add("button-pagination-inactive");
+    button_pagination_active_one.classList.remove("button-pagination-active");
+    button_pagination_active_one.disabled = true;
+    button_pagination_active_too.classList.add("button-pagination-inactive");
+    button_pagination_active_too.classList.remove("button-pagination-active");
+    button_pagination_active_too.disabled = true;
+    path_active_one.setAttribute("fill", "#CDCDCD");
+    path_active_too.setAttribute("fill", "#CDCDCD");
+  }
+  if (page > 1) {
+    button_pagination_inactive_too.classList.remove(
+      "button-pagination-inactive"
+    );
+    button_pagination_inactive_one.classList.remove(
+      "button-pagination-inactive"
+    );
+    button_pagination_inactive_too.classList.add("button-pagination-active");
+    button_pagination_inactive_one.classList.add("button-pagination-active");
+    button_pagination_inactive_too.disabled = false;
+    button_pagination_inactive_one.disabled = false;
+    path_inactive_one.setAttribute("fill", "#292929");
+    path_inactive_too.setAttribute("fill", "#292929");
+  }
+
   button_pagination.innerHTML = page;
   const cards_container = document.querySelector(".cards-container");
 
   const card = document.querySelector(".card");
- for ( let i = 0; i <=7; i++){
-  fillcard(cards_container.children[i], (page - 1) * 8 + i);
-}
-})
-
+  for (let i = 0; i <= cardsperpage - 1; i++) {
+    fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
+  }
+});
 
 button_pagination_active_too.addEventListener("click", () => {
-  page = 6;
+  page = max_page;
   button_pagination.innerHTML = page;
   const cards_container = document.querySelector(".cards-container");
 
   const card = document.querySelector(".card");
- for ( let i = 0; i <=7; i++){
-  fillcard(cards_container.children[i], (page - 1) * 8 + i);
-}
-})
+  for (let i = 0; i <= cardsperpage - 1; i++) {
+    fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
+  }
+  button_pagination_inactive_one.classList.remove("button-pagination-inactive");
+  button_pagination_inactive_one.classList.add("button-pagination-active");
+  button_pagination_inactive_one.disabled = false;
+  button_pagination_inactive_too.classList.remove("button-pagination-inactive");
+  button_pagination_inactive_too.classList.add("button-pagination-active");
+  button_pagination_inactive_too.disabled = false;
+  path_inactive_one.setAttribute("fill", "#292929");
+  path_inactive_too.setAttribute("fill", "#292929");
+  button_pagination_active_too.classList.remove("button-pagination-active");
+  button_pagination_active_too.disabled = true;
+  button_pagination_active_too.classList.add("button-pagination-inactive");
+  button_pagination_active_one.classList.remove("button-pagination-active");
+  button_pagination_active_one.classList.add("button-pagination-inactive");
+  button_pagination_active_one.disabled = true;
+  path_active_one.setAttribute("fill", "#CDCDCD");
+  path_active_too.setAttribute("fill", "#CDCDCD");
+});
 button_pagination_inactive_one.addEventListener("click", () => {
-  if (page > 1){
-    page --;}
-    button_pagination.innerHTML = page;
+  if (page > 1) {
+    page--;
+  }
+  if (page < max_page) {
+    button_pagination_active_one.classList.add("button-pagination-active");
+    button_pagination_active_one.disabled = false;
+    button_pagination_active_one.classList.remove("button-pagination-inactive");
+    path_active_one.setAttribute("fill", "#292929");
+    path_active_too.setAttribute("fill", "#292929");
+  }
+  if (page == 1) {
+    button_pagination_inactive_one.classList.add("button-pagination-inactive");
+    button_pagination_inactive_one.disabled = true;
+    button_pagination_inactive_one.classList.remove("button-pagination-active");
+    button_pagination_inactive_too.classList.add("button-pagination-inactive");
+    button_pagination_inactive_too.classList.remove("button-pagination-active");
+    button_pagination_inactive_too.disabled = true;
+    path_inactive_one.setAttribute("fill", "#CDCDCD");
+    path_inactive_too.setAttribute("fill", "#CDCDCD");
+  }
+  if (page >= 1) {
+    button_pagination_active_too.classList.add("button-pagination-active");
+    button_pagination_active_too.classList.remove("button-pagination-inactive");
+    button_pagination_active_too.disabled = false;
+  }
+  button_pagination.innerHTML = page;
   const cards_container = document.querySelector(".cards-container");
 
   const card = document.querySelector(".card");
- for ( let i = 0; i <=7; i++){
-  fillcard(cards_container.children[i], (page - 1) * 8 + i);
+  for (let i = 0; i <= cardsperpage - 1; i++) {
+    fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
+  }
+});
+button_pagination_inactive_too.addEventListener("click", () => {
+  if (page > 1) {
+    page = 1;
+  }
+  button_pagination.innerHTML = page;
+  const cards_container = document.querySelector(".cards-container");
+
+  const card = document.querySelector(".card");
+  for (let i = 0; i <= cardsperpage - 1; i++) {
+    fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
+  }
+  button_pagination_inactive_too.classList.add("button-pagination-inactive");
+  button_pagination_inactive_too.classList.remove("button-pagination-active");
+  button_pagination_inactive_too.disabled = true;
+  button_pagination_inactive_one.classList.add("button-pagination-inactive");
+  button_pagination_inactive_one.classList.remove("button-pagination-active");
+  button_pagination_inactive_one.disabled = true;
+  button_pagination_active_one.classList.add("button-pagination-active");
+  button_pagination_active_one.classList.remove("button-pagination-inactive");
+  button_pagination_active_one.disabled = false;
+  button_pagination_active_too.classList.add("button-pagination-active");
+  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_too.disabled = false;
+  path_inactive_one.setAttribute("fill", "#CDCDCD");
+  path_inactive_too.setAttribute("fill", "#CDCDCD");
+  path_active_one.setAttribute("fill", "#292929");
+  path_active_too.setAttribute("fill", "#292929");
+});
+
+// паггинация на 768
+let mediaQuery = window.matchMedia("(max-width: 768px)");
+mediaQuery.addEventListener("change", function (event) {
+  if (event.matches) {
+    setmediumwidth();
+    console.log("good");
+  } else {
+    sethighwidth();
+    console.log("false");
+  }
+});
+function setmediumwidth() {
+  max_page = 8;
+  cardsperpage = 6;
+  page = 1;
+  button_pagination_active_one.classList.add("button-pagination-active");
+  button_pagination_active_too.classList.add("button-pagination-active");
+  button_pagination_active_one.classList.remove("button-pagination-inactive");
+  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_one.disabled = false;
+  button_pagination_active_too.disabled = false;
+  button_pagination_inactive_one.classList.add("button-pagination-inactive");
+  button_pagination_inactive_too.classList.add("button-pagination-inactive");
+  button_pagination_inactive_one.classList.remove("button-pagination-active");
+  button_pagination_inactive_too.classList.remove("button-pagination-active");
+  button_pagination_inactive_one.disabled = true;
+  button_pagination_inactive_too.disabled = true;
+  path_inactive_one.setAttribute("fill", "#CDCDCD");
+  path_inactive_too.setAttribute("fill", "#CDCDCD");
+  path_active_one.setAttribute("fill", "#292929");
+  path_active_too.setAttribute("fill", "#292929");
+  button_pagination.innerHTML = page;
+
+  fillcardscontainer()
 }
-})
+function sethighwidth() {
+  max_page = 6;
+  cardsperpage = 8;
+  page = 1;
+  button_pagination_active_one.classList.add("button-pagination-active");
+  button_pagination_active_too.classList.add("button-pagination-active");
+  button_pagination_active_one.classList.remove("button-pagination-inactive");
+  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_one.disabled = false;
+  button_pagination_active_too.disabled = false;
+  button_pagination_inactive_one.classList.add("button-pagination-inactive");
+  button_pagination_inactive_too.classList.add("button-pagination-inactive");
+  button_pagination_inactive_one.classList.remove("button-pagination-active");
+  button_pagination_inactive_too.classList.remove("button-pagination-active");
+  button_pagination_inactive_one.disabled = true;
+  button_pagination_inactive_too.disabled = true;
+  path_inactive_one.setAttribute("fill", "#CDCDCD");
+  path_inactive_too.setAttribute("fill", "#CDCDCD");
+  path_active_one.setAttribute("fill", "#292929");
+  path_active_too.setAttribute("fill", "#292929");
+  button_pagination.innerHTML = page;
+  fillcardscontainer()
+}
+// паггинация на 320 px;
+let mediaQuerysmall = window.matchMedia("(max-width: 600px)");
+mediaQuerysmall.addEventListener("change", function (event) {
+  if (event.matches) {
+    setsmallwidth();
+    console.log("good");
+  } else {
+    setmediumwidth();
+    console.log("false");
+  }
+});
+function setsmallwidth(){
+  max_page = 16;
+  cardsperpage = 3;
+  page = 1;
+  button_pagination_active_one.classList.add("button-pagination-active");
+  button_pagination_active_too.classList.add("button-pagination-active");
+  button_pagination_active_one.classList.remove("button-pagination-inactive");
+  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_one.disabled = false;
+  button_pagination_active_too.disabled = false;
+  button_pagination_inactive_one.classList.add("button-pagination-inactive");
+  button_pagination_inactive_too.classList.add("button-pagination-inactive");
+  button_pagination_inactive_one.classList.remove("button-pagination-active");
+  button_pagination_inactive_too.classList.remove("button-pagination-active");
+  button_pagination_inactive_one.disabled = true;
+  button_pagination_inactive_too.disabled = true;
+  path_inactive_one.setAttribute("fill", "#CDCDCD");
+  path_inactive_too.setAttribute("fill", "#CDCDCD");
+  path_active_one.setAttribute("fill", "#292929");
+  path_active_too.setAttribute("fill", "#292929");
+  button_pagination.innerHTML = page;
 
-
+  fillcardscontainer()
+}

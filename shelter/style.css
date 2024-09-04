@@ -830,6 +830,14 @@ footer {
   background-color: #f1cdb3;
   border-radius: 100px;
   border: none;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #292929;
+  text-align: center;
+
 }
 
 .burger-menu {

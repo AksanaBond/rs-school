@@ -9,6 +9,11 @@
   src: url(assets/fonts/georgia/georgia-regular.ttf);
 }
 @font-face {
+  font-family: "Georgia";
+  font-weight: bold;
+  src: url(assets/fonts/georgia/georgia-bold.ttf);
+}
+@font-face {
   font-family: "Arial";
   font-style: normal;
   src: url(assets/fonts/arial/arial-regular.ttf);
@@ -32,6 +37,10 @@ html {
 body {
   margin: auto;
   position: relative;
+  overflow: scroll ;
+}
+body .open {
+  overflow: hidden;
 }
 .container {
   max-width: 1280px;
@@ -175,6 +184,8 @@ body {
   letter-spacing: 1px;
   cursor: pointer;
   transition: background-color 0.5s ease;
+  position: relative;
+  z-index: 0;
 }
 .button-primary:hover {
   background-color: #fddcc4;
@@ -191,6 +202,7 @@ body {
   width: 1200px;
   height: 60px;
 }
+
 .logo a {
   text-decoration: none;
 }
@@ -818,6 +830,14 @@ footer {
   background-color: #f1cdb3;
   border-radius: 100px;
   border: none;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #292929;
+  text-align: center;
+
 }
 
 .burger-menu {
@@ -1224,7 +1244,7 @@ footer {
   }
 
   .burger-menu {
-    display: block;
+    cursor: pointer;
   }
 
   .help-content {
@@ -1501,7 +1521,7 @@ footer {
     justify-content: flex-end;
     margin: 49px 20px;
   }
-  .burger-line {
+  .burger-linepets {
     background: #000;
     width: 100%;
     height: 2px;
@@ -1518,6 +1538,38 @@ footer {
     top: 0;
   }
   .burger::after {
+    bottom: 0;
+  }
+  /*стиль для бургер на 767 px;*/
+  .burger-menu {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+  .burger-line {
+    background:#F1CDB3;
+    width: 100%;
+    height: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+  .burger-menu::before,
+  .burger-menu::after {
+    content: "";
+    position: absolute;
+    background:#F1CDB3;
+    width: 100%;
+    height: 2px;
+  }
+  .burger-menu::before {
+    top: 0;
+  }
+  .burger-menu::after {
     bottom: 0;
   }
 }

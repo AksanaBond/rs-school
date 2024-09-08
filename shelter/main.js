@@ -116,6 +116,7 @@ function shuffle(array) {
   }
   return array;
 }
+
 const burger = document.querySelector(".burger-menu");
 const burger_ourpets = document.querySelector(".burger");
 const pop_up_menu = document.querySelector(".pop-up-menu");
@@ -139,15 +140,60 @@ const button_pagination_inactive_one = document.querySelector(
   ".button-pagination-inactive-one"
 );
 let max_page = 6;
-let cardsperpage = 8;
+let cardsperpage = 3;
 const svg_inactive_one = document.getElementById("svg-inactive-one");
-const path_inactive_one = svg_inactive_one.querySelector("path");
+const path_inactive_one = svg_inactive_one?.querySelector("path");
 const svg_inactive_too = document.getElementById("svg-inactive-too");
-const path_inactive_too = svg_inactive_too.querySelector("path");
+const path_inactive_too = svg_inactive_too?.querySelector("path");
 const svg_active_one = document.getElementById("svg-active-one");
 const svg_active_too = document.getElementById("svg-active-too");
-const path_active_one = svg_active_one.querySelector("path");
-const path_active_too = svg_active_too.querySelector("path");
+const path_active_one = svg_active_one?.querySelector("path");
+const path_active_too = svg_active_too?.querySelector("path");
+
+// работа слайдер-карусели 
+const random_pets = shuffle([...pets]);
+const random_firstthree = random_pets.slice(0, 3);
+console.log(random_firstthree)
+const button_arrow = document.querySelectorAll(".button-arrow");
+const button_arrow_left = document.querySelector(".button-arrow-left");
+const button_arrow_right = document.querySelector(".button-arrow-right");
+ function fillcardscroll() {
+  const cardthree = document.querySelector(".cardthree");
+  const card = document.querySelector(".card");
+  for (let i = 0; i < 3; i++) {
+    cardthree.innerHTML += card.outerHTML;
+    for (let i = 0; i <= 2; i++) {
+      fillcard_scroll(cardthree.children[i], i);
+    }
+ }
+}
+ function fillcard_scroll(element, petIndex) {
+  const name_card_scroll = element.querySelector(".name_card");
+  name_card_scroll.innerHTML = random_firstthree[petIndex].name;
+  console.log(name_card);
+  const img_card_scroll = element.querySelector(".img_card");
+  img_card_scroll.src = random_firstthree[petIndex].img;
+  element.setAttribute("data-name", random_firstthree[petIndex].name);
+}
+
+function fillcardscontainer() {
+  const cards_container = document.querySelector(".cards-container");
+
+  while (cards_container.childElementCount > 1) {
+    cards_container.removeChild(cards_container.childNodes[0]);
+  }
+
+  const card = document.querySelector(".card");
+  for (let i = 0; i < cardsperpage - 1; i++) {
+    cards_container.innerHTML += card.outerHTML;
+    console.log(cards_container);
+  }
+  for (let i = 0; i <= cardsperpage - 1; i++) {
+    fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
+  }
+}
+
+
 
 // работа бургер меню
 burger?.addEventListener("click", () => {
@@ -203,12 +249,13 @@ modal_close?.addEventListener("click", () => {
 // работа паггинации массив из 8 карточек
 window.addEventListener("load", () => {
   const screenWidth = window.innerWidth;
-  if(screenWidth > 768){
+  if(screenWidth > 768 && button_pagination_active_one &&
+    button_pagination_active_too){
     sethighwidth();
   }else if(screenWidth < 768 && screenWidth > 600){
 setmediumwidth() 
 console.log ("medium")
-  } else {
+  } else if(button_pagination_active_one) {
     setsmallwidth()
     console.log ("small")
   }
@@ -238,18 +285,44 @@ function fillcard(element, petIndex) {
   const img_card = element.querySelector(".img_card");
   img_card.src = petsArray[petIndex].img;
   element.setAttribute("data-name", petsArray[petIndex].name);
+
+  element.addEventListener("click", () => {
+    document.body.classList.toggle("modal_open");
+    const name = element.getAttribute("data-name");
+    const pet = pets.find((pet) => pet.name === name);
+    console.log(name);
+    console.log(pet);
+    const modal_name = document.getElementById("modal_name");
+    modal_name.innerHTML = name;
+    const modal_img = document.getElementById("modal_img");
+    modal_img.src = pet.img;
+    const modal_type = document.getElementById("modal_type");
+    modal_type.innerHTML = pet.type;
+    const modal_breed = document.getElementById("modal_breed");
+    modal_breed.innerHTML = pet.breed;
+    const modal_description = document.getElementById("modal_description");
+    modal_description.innerHTML = pet.description;
+    const modal_age = document.getElementById("modal_age");
+    modal_age.innerHTML = pet.age;
+    const modal_inoculations = document.getElementById("modal_inoculations");
+    modal_inoculations.innerHTML = pet.inoculations.join(", ");
+    const modal_diseases = document.getElementById("modal_diseases");
+    modal_diseases.innerHTML = pet.diseases.join(", ");
+    const modal_parasites = document.getElementById("modal_parasites");
+    modal_parasites.innerHTML = pet.parasites.join(", ");
+  });
 }
 // паггинация
-button_pagination_active_one.addEventListener("click", () => {
+button_pagination_active_one?.addEventListener("click", () => {
   if (page < max_page) {
     page++;
   }
   if (page == max_page) {
-    button_pagination_active_one.classList.add("button-pagination-inactive");
-    button_pagination_active_one.classList.remove("button-pagination-active");
+    button_pagination_active_one?.classList.add("button-pagination-inactive");
+    button_pagination_active_one?.classList.remove("button-pagination-active");
     button_pagination_active_one.disabled = true;
-    button_pagination_active_too.classList.add("button-pagination-inactive");
-    button_pagination_active_too.classList.remove("button-pagination-active");
+    button_pagination_active_too?.classList.add("button-pagination-inactive");
+    button_pagination_active_too?.classList.remove("button-pagination-active");
     button_pagination_active_too.disabled = true;
     path_active_one.setAttribute("fill", "#CDCDCD");
     path_active_too.setAttribute("fill", "#CDCDCD");
@@ -278,7 +351,7 @@ button_pagination_active_one.addEventListener("click", () => {
   }
 });
 
-button_pagination_active_too.addEventListener("click", () => {
+button_pagination_active_too?.addEventListener("click", () => {
   page = max_page;
   button_pagination.innerHTML = page;
   const cards_container = document.querySelector(".cards-container");
@@ -304,7 +377,7 @@ button_pagination_active_too.addEventListener("click", () => {
   path_active_one.setAttribute("fill", "#CDCDCD");
   path_active_too.setAttribute("fill", "#CDCDCD");
 });
-button_pagination_inactive_one.addEventListener("click", () => {
+button_pagination_inactive_one?.addEventListener("click", () => {
   if (page > 1) {
     page--;
   }
@@ -338,7 +411,7 @@ button_pagination_inactive_one.addEventListener("click", () => {
     fillcard(cards_container.children[i], (page - 1) * cardsperpage + i);
   }
 });
-button_pagination_inactive_too.addEventListener("click", () => {
+button_pagination_inactive_too?.addEventListener("click", () => {
   if (page > 1) {
     page = 1;
   }
@@ -373,7 +446,8 @@ mediaQuery.addEventListener("change", function (event) {
   if (event.matches) {
     setmediumwidth();
     console.log("good");
-  } else {
+  } else if (button_pagination_active_one &&
+    button_pagination_active_too){
     sethighwidth();
     console.log("false");
   }
@@ -382,10 +456,10 @@ function setmediumwidth() {
   max_page = 8;
   cardsperpage = 6;
   page = 1;
-  button_pagination_active_one.classList.add("button-pagination-active");
-  button_pagination_active_too.classList.add("button-pagination-active");
-  button_pagination_active_one.classList.remove("button-pagination-inactive");
-  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_one?.classList.add("button-pagination-active");
+  button_pagination_active_too?.classList.add("button-pagination-active");
+  button_pagination_active_one?.classList.remove("button-pagination-inactive");
+  button_pagination_active_too?.classList.remove("button-pagination-inactive");
   button_pagination_active_one.disabled = false;
   button_pagination_active_too.disabled = false;
   button_pagination_inactive_one.classList.add("button-pagination-inactive");
@@ -406,16 +480,16 @@ function sethighwidth() {
   max_page = 6;
   cardsperpage = 8;
   page = 1;
-  button_pagination_active_one.classList.add("button-pagination-active");
-  button_pagination_active_too.classList.add("button-pagination-active");
-  button_pagination_active_one.classList.remove("button-pagination-inactive");
-  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_one?.classList.add("button-pagination-active");
+  button_pagination_active_too?.classList.add("button-pagination-active");
+  button_pagination_active_one?.classList.remove("button-pagination-inactive");
+  button_pagination_active_too?.classList.remove("button-pagination-inactive");
   button_pagination_active_one.disabled = false;
   button_pagination_active_too.disabled = false;
-  button_pagination_inactive_one.classList.add("button-pagination-inactive");
-  button_pagination_inactive_too.classList.add("button-pagination-inactive");
-  button_pagination_inactive_one.classList.remove("button-pagination-active");
-  button_pagination_inactive_too.classList.remove("button-pagination-active");
+  button_pagination_inactive_one?.classList.add("button-pagination-inactive");
+  button_pagination_inactive_too?.classList.add("button-pagination-inactive");
+  button_pagination_inactive_one?.classList.remove("button-pagination-active");
+  button_pagination_inactive_too?.classList.remove("button-pagination-active");
   button_pagination_inactive_one.disabled = true;
   button_pagination_inactive_too.disabled = true;
   path_inactive_one.setAttribute("fill", "#CDCDCD");
@@ -428,7 +502,7 @@ function sethighwidth() {
 // паггинация на 320 px;
 let mediaQuerysmall = window.matchMedia("(max-width: 600px)");
 mediaQuerysmall.addEventListener("change", function (event) {
-  if (event.matches) {
+  if (event.matches && button_pagination_active_one) {
     setsmallwidth();
     console.log("good");
   } else {
@@ -440,10 +514,10 @@ function setsmallwidth(){
   max_page = 16;
   cardsperpage = 3;
   page = 1;
-  button_pagination_active_one.classList.add("button-pagination-active");
-  button_pagination_active_too.classList.add("button-pagination-active");
-  button_pagination_active_one.classList.remove("button-pagination-inactive");
-  button_pagination_active_too.classList.remove("button-pagination-inactive");
+  button_pagination_active_one?.classList.add("button-pagination-active");
+  button_pagination_active_too?.classList.add("button-pagination-active");
+  button_pagination_active_one?.classList.remove("button-pagination-inactive");
+  button_pagination_active_too?.classList.remove("button-pagination-inactive");
   button_pagination_active_one.disabled = false;
   button_pagination_active_too.disabled = false;
   button_pagination_inactive_one.classList.add("button-pagination-inactive");

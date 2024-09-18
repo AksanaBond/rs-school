@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Audio-player</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio src="assets/audio/beyonce.mp3"></audio>
     <div class="audio-player">
-
+        <div class="img-container">
+            <img src="assets/img/lemonade.png" alt="img" class="img">
+        </div>
+        <div class="player">
+            <div class="isplay">
+            <img src="assets/svg/play.png" alt="play" class="play"></div>
+            <div>
+            <div class="name">Beyonce</div>
+            <div class="song">Don't Hurt Yourself</div>
+            </div>
+            <div>
+            <div class="backward">
+                <img src="assets/svg/backward.png" class="back" alt="backward">
+            </div>
+            <div class="forward">
+                <img  src="assets/svg/forward.png" class="next" alt="forward">
+            </div>
+        </div>
+            <div class="progress">
+                <input type="range" id="progress-bar" min="0" max="" value="0">
+                <div class="nowtime"></div>
+                <div class="duration"></div>
+            </div>
+        </div>
     </div>
 
     <footer>
 
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>

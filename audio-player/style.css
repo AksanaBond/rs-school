@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(assets/font/Montserrat-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url(assets/font/Montserrat-Regular.ttf);
+    font-style: normal;
+}
+html {
+    font-size: 16px;
+}
+* {
+    box-sizing: border-box;
+}
+    body {
+        margin: auto;
+        background: linear-gradient(rgba(154, 180, 176, 0.6), transparent), url(assets/img/lemonade.png);
+        background-position: center center;
+        background-size: cover;
+       background-repeat: no-repeat;
+    }
+    .audio-player {
+        margin: 3rem auto;
+        width: 350px;
+        height: 450px;
+        border-radius: 0.6rem;
+        background-image: linear-gradient( to right,rgb(71, 69, 69), rgb(131, 126, 126));
+        overflow: hidden;
+        box-shadow: 0 0 11px black ;
+    }
+    .img-container {
+        height: 50%;
+        overflow: hidden;
+    }
+    .img {
+        width: 104%;
+    }
+    .play {
+        width: 50px;
+        height: 50px;
+        filter: invert(1);
+    }
+    .back {
+        width: 30px;
+        height: 30px;
+        filter: invert(1);
+    }
+    .next {
+        width: 30px;
+        height: 30px;
+        filter: invert(1);
+    }
+.name {
+    color: rgb(193, 255, 6);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.song {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 17px;
+}
+.player {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+}

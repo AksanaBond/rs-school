@@ -6,7 +6,7 @@
     <title>Audio-player</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="body">
     <audio src="assets/audio/beyonce.mp3"></audio>
     <div class="audio-player">
         <div class="img-container">
@@ -15,7 +15,7 @@
         <div class="player">
             <div class="isplay">
             <img src="assets/svg/play.png" alt="play" class="play"></div>
-            <div>
+            <div style="width: 163px;">
             <div class="name">Beyonce</div>
             <div class="song">Don't Hurt Yourself</div>
             </div>
@@ -27,9 +27,9 @@
                 <img  src="assets/svg/forward.png" class="next" alt="forward">
             </div>
         </div>
-            <div class="progress">
-                <input type="range" id="progress-bar" min="0" max="" value="0">
-                <div class="nowtime"></div>
+            <div class="range">
+                <input type="range" id="progress" min="0" max="" value="0">
+                <div class="nowtime">0:00</div>
                 <div class="duration"></div>
             </div>
         </div>

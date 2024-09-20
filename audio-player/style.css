@@ -14,13 +14,21 @@ html {
 * {
     box-sizing: border-box;
 }
-    body {
+   #body {
         margin: auto;
         background: linear-gradient(rgba(154, 180, 176, 0.6), transparent), url(assets/img/lemonade.png);
         background-position: center center;
         background-size: cover;
        background-repeat: no-repeat;
     }
+    /*#background {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        background-position: center;
+        background-size: cover;
+       background-repeat: no-repeat;
+    }*/
     .audio-player {
         margin: 3rem auto;
         width: 350px;
@@ -41,6 +49,11 @@ html {
         width: 50px;
         height: 50px;
         filter: invert(1);
+        transition: opacity 0.3s easy;
+        cursor: pointer;
+    }
+    .play:hover {
+transform: scale(1.1);
     }
     .back {
         width: 30px;
@@ -71,4 +84,21 @@ html {
     justify-content: center;
     gap: 25px;
     align-items: center;
+}
+#progress {
+    height: 10px;
+    width: 160px;
+    background-color: rgb(66, 65, 65);
+    appearance: none;
+    border-radius: 40px;
+    border: 1px solid rgb(193, 255, 6);
+}
+#progress::-webkit-slider-thumb {
+    height: 15px;
+    width: 15px;
+    background: rgb(193, 255, 6);
+    border-radius: 50%;
+    appearance: none;
+    cursor: pointer;
+    box-shadow:  0 0 30px rgb(242, 252, 211);
 }

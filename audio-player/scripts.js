@@ -6,6 +6,9 @@ const singer = document.querySelector(".name");
 const song = document.querySelector(".song");
 const img = document.querySelector(".img");
 const body = document.getElementById('body');
+const progressbar = document.getElementById('progress');
+const duration = document.querySelector(".duration");
+const current = document.querySelector(".nowtime");
 
 //проигрывание плэйера
 let isPlay = false;
@@ -72,3 +75,32 @@ function playPrev() {
         body.style.backgroundImage = songs[playNumber].body;
         console.log ("playnext")
 };
+//прогресс-бар
+function updateProgressBar() {
+    const progress = (audio.currentTime/audio.duration)*100;
+    progressbar.value = progress;
+    duration.textContent = formatTime (audio.duration);
+    current.textContent = formatTime (audio.currentTime);
+
+    //progressbar.style.flexBasis = `%{progress}%`;
+}
+
+audio.addEventListener('timeupdate', updateProgressBar);
+progressbar.addEventListener('input', () => {
+    const newTime = (progressbar.value / 100) * audio.duration;
+   audio.currentTime = newTime;
+  });
+  audio.addEventListener("loadeddata", () => {
+    console.log(duration);
+    duration.textContent = formatTime(audio.duration);
+    
+  },false);
+  function formatTime (time) {
+    const min = Math.floor (time/60);
+    const second = Math.floor (time% 60);
+    return `${min}:${second  
+        < 10 ? '0' : ''}${second}`; 
+  }
+  setTimeout(() => {
+    progressbar.value = 0;
+  }, 10);

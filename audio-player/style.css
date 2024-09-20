@@ -59,11 +59,19 @@ transform: scale(1.1);
         width: 30px;
         height: 30px;
         filter: invert(1);
+        cursor: pointer;
+    } 
+    .back:hover {
+        transform: scale(1.1);
     }
     .next {
         width: 30px;
         height: 30px;
         filter: invert(1);
+        cursor: pointer;
+    }
+    .next:hover {
+        transform: scale(1.1);
     }
 .name {
     color: rgb(193, 255, 6);
@@ -92,6 +100,7 @@ transform: scale(1.1);
     appearance: none;
     border-radius: 40px;
     border: 1px solid rgb(193, 255, 6);
+    flex-basis: 100%;
 }
 #progress::-webkit-slider-thumb {
     height: 15px;
@@ -102,3 +111,12 @@ transform: scale(1.1);
     cursor: pointer;
     box-shadow:  0 0 30px rgb(242, 252, 211);
 }
+.time {
+    color: rgb(193, 255, 6);
+}
+.range {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+

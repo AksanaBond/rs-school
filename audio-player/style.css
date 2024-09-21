@@ -20,6 +20,10 @@ html {
         background-position: center center;
         background-size: cover;
        background-repeat: no-repeat;
+       background-attachment: fixed;
+       display: flex;
+       align-items: center;
+       height: 100vh;
     }
     /*#background {
         width: 100%;
@@ -30,7 +34,7 @@ html {
        background-repeat: no-repeat;
     }*/
     .audio-player {
-        margin: 3rem auto;
+        margin: auto;
         width: 350px;
         height: 450px;
         border-radius: 0.6rem;

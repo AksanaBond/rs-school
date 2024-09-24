@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: auto;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+   height: 60px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   background-color: rgba(190, 227, 235, 0.2);
+   }
+   /*style*/ 
+   .sofadi-one-regular {
+    font-family: "Sofadi One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }  
+
+   #header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(190, 227, 235, 0.2);
+   }
+   #title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+   }
+   #icon {
+    width: 30px;
+    height: 30px;
+   }
+   h1 {
+    color: rgb(216, 133, 8);
+    font-family: "Sofadi One", system-ui;
+   }
+   .search_container {
+    margin-right: 10px;
+   }
+   #mySearch {
+    
+   }
+   
+   .logo {
+       background: url(assets/rss-logo.svg);
+       width: 40px;
+       height: 40px;
+   }
+   .github {
+       color: rgb(216, 133, 8);;
+       font-family: "Sofadi One", system-ui;
+       font-weight: normal;
+       font-size: 16px;
+       border-radius: 50px;
+    
+       padding: 6px;
+   }
+   .year {
+       color: rgb(216, 133, 8);;
+       /* rgb(248, 173, 68); */
+       font-family: "Sofadi One", system-ui;
+       font-weight: normal;
+       font-size: 12px;
+       border-radius: 50px;
+       padding: 6px;
+   }
+   a {
+       text-decoration:none;
+   }

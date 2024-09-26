@@ -29,7 +29,24 @@ function showData(element, dataResult) {
 }
 
 button.addEventListener("click", () => {
-  const querysearch = mySearch.value;
-  url = `https://api.unsplash.com/search/photos?query=${querysearch}&client_id=gl2ROvG6eEHQ_sRkXSHi4fE7i3rxrNfSwLAavbVm60E`;
-  getData();
+  const querysearch = mySearch.value?.trim();
+  if(querysearch){
+    url = `https://api.unsplash.com/search/photos?query=${querysearch}&client_id=gl2ROvG6eEHQ_sRkXSHi4fE7i3rxrNfSwLAavbVm60E`;
+    getData();
+  }
+ 
 });
+// при открытии страницы курсор в поле ввода
+document.addEventListener('DOMContentLoaded', () =>{
+    mySearch.focus();
+})
+// отправка поискового запроса по нажатию enter
+mySearch.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+     const querysearch = mySearch.value?.trim();
+     if(querysearch){
+        url = `https://api.unsplash.com/search/photos?query=${querysearch}&client_id=gl2ROvG6eEHQ_sRkXSHi4fE7i3rxrNfSwLAavbVm60E`;
+        getData();
+      }
+    }
+})

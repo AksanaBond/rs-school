@@ -46,9 +46,15 @@ footer {
    .search_container {
     margin-right: 10px;
    }
-   #mySearch {
-
+   #mySearch  {
+border-color:rgb(216, 133, 8) !important; 
+border: 2px solid;
    }
+   #mySearch:focus {
+    border-color:rgb(216, 133, 8); 
+    border: 3px;
+   }
+
    
    .logo {
        background: url(assets/rss-logo.svg);
@@ -56,7 +62,7 @@ footer {
        height: 40px;
    }
    .github {
-       color: rgb(216, 133, 8);;
+       color: rgb(216, 133, 8);
        font-family: "Sofadi One", system-ui;
        font-weight: normal;
        font-size: 16px;
@@ -89,4 +95,16 @@ footer {
     height: 300px;
     width: 300px;
     object-fit:cover;
+  }
+  #button_glass {
+    width: 15px;
+    height: 15px;
+  }
+  #button {
+    background-color:  rgba(190, 227, 235, 0.2);
+    border: 0;
+  }
+  .search_container {
+    display: flex;
+    align-content: center;
   }

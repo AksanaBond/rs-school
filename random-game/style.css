@@ -3,6 +3,11 @@
     src: url(assets/font/halloween_spooky_2/Halloween\ Spooky.otf);
     font-style: normal;
 }
+@font-face {
+   font-family: "Georgia";
+   src: url(assets/font/georgia/georgia-bold.ttf);
+   font-style: normal;
+}
 * {
     box-sizing: border-box;
 }
@@ -28,7 +33,9 @@
   }
  header {
     margin-top: 0;
-    background:linear-gradient(to bottom  right,  rgb(110, 161, 89), rgb(38, 76, 23));;
+    background:linear-gradient(to bottom  right,  rgb(110, 161, 89), rgb(38, 76, 23));
+    display: flex;
+    justify-content: space-around;
  }
  footer {
     margin-bottom: 0;
@@ -44,6 +51,8 @@
     font-family: "Halloween spooky", sans-serif;
     letter-spacing: 5px;
     margin: 20px;
+    color: #f7f6e8;
+    text-shadow: 1px 1px 0 black;
  }
  .logo {
     background: url(assets/rss-logo.svg);
@@ -114,4 +123,48 @@
     display: flex;
     align-items: center;
  }
-
+ button {
+   background-color: #f7f6e8;
+   box-shadow: inset -20px 20px 20px rgba(0,0,0,.2), -20px 20px 30px rgba(0,0,0,.3);
+   border-radius: 50%;
+   font-family:"Halloween spooky", sans-serif; 
+   border: 2px solid black;
+   font-size: 20px;
+   cursor: pointer;
+ }
+ button:hover {
+   transform: scale(1.1);
+   transition: transform 0.3s;
+ } 
+ /* gratulation modal*/
+ #endgame {
+display: flex;
+justify-content: center;
+align-items: center;
+ }
+ #gratulations {
+   display: none;
+   position: fixed;
+   top:75px;
+   width: 900px;
+   height: 700px;
+   object-fit: cover;
+ }
+ #result {
+   width: 300px;
+   height: 200px;
+   position: fixed;
+   top:420px;
+   background-color: #f7f6e8;
+   display: none;
+ }
+ h3 {
+   font-family:"Halloween spooky", sans-serif;
+    font-size: 30px;
+    text-align: center;
+ }
+p {
+   font-family: "Georgia", sans-serif;
+   font-size: 20px;
+   padding-left: 10px;
+}

@@ -1,5 +1,8 @@
 const card = document.querySelector(".card");
-const button_startGame = document.querySelector(".button_startGame")
+const button_startGame = document.querySelector(".button_startGame");
+const button_results = document.querySelector(".local_storage");
+const table_result = document.querySelector(".table_result");
+const button_close = document.querySelector(".button_cross");
 const cards = [
   {
     number: "1",
@@ -164,6 +167,14 @@ function startGame(){
     flippedCard = false;
     coupleCard = 0;
     cardsforFlip.forEach((card) => card.addEventListener("click", cardFlip));
-
-    
+    gratulation.classList.remove ("finish");
+    result.classList.remove ("finish");
 };
+button_results.addEventListener('click', openResults);
+function openResults(){
+    table_result.classList.toggle ("open");
+}
+button_close.addEventListener('click', ()=>{
+    table_result.classList.remove("open");
+})
+

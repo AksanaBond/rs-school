@@ -13,6 +13,7 @@
 }
  body {
     margin: auto;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -126,16 +127,22 @@
  button {
    background-color: #f7f6e8;
    box-shadow: inset -20px 20px 20px rgba(0,0,0,.2), -20px 20px 30px rgba(0,0,0,.3);
-   border-radius: 50%;
+   border-radius: 40%;
    font-family:"Halloween spooky", sans-serif; 
+   letter-spacing: 0.1rem;
    border: 2px solid black;
    font-size: 20px;
    cursor: pointer;
+   width: 70px;
  }
  button:hover {
-   transform: scale(1.1);
+   transform: scale(1.05);
    transition: transform 0.3s;
  } 
+ button:active{
+   transform: scale(0.9);
+   transition: transform 0.3s;
+ }
  /* gratulation modal*/
  #endgame {
 display: flex;
@@ -175,4 +182,75 @@ span {
    font-family:"Halloween spooky", sans-serif;
     font-size: 25px;
     letter-spacing: 0.2rem;
+}
+/* результат*/
+.table_result {
+   position: fixed;
+   top: 75px;
+   width: 100%;
+   height: 100%;
+   right: -100%;
+   background-color: rgba(56, 72, 48, 0.2);
+   display: none;
+   transition: right 0.3s ease-in-out;
+
+}
+ .open {
+   display: block;
+   position: fixed;
+   top: 75px;
+   width: 100%;
+   height: 100%;
+   right: 0;
+   background-color: rgba(56, 72, 48, 0.2);
+}
+.table {
+background-color: #f7f6e8;
+width: 500px;
+margin: 0 auto;
+padding: 2px;
+}
+#header_results {
+   padding-top: 5px;
+   margin: 0;
+}
+th {
+   font-family:"Halloween spooky", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+td {
+   font-family: "Georgia", sans-serif;
+   font-size: 18px;
+   text-align: center;
+   text-shadow: 1px 1px 1px rgb(110, 161, 89);
+   padding: 10px;
+}
+table {
+   margin: 0 auto;
+}
+.button_cross {
+   width: 30px;
+   height: 30px;
+   margin-left: 460px;
+   margin-top: 3px;
+   box-shadow: inset 0 0 15px rgb(58, 105, 46, 0.2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   cursor: pointer;
+}
+.button_cross:hover {
+   transform: scale(1.1);
+   transition: transform 0.3s;
+}
+.button_cross:active {
+transform: rotate(180deg);
+transition: transform 0.5s ease;
+}
+.cross {
+   width: 25px;
 }

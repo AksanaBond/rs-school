@@ -8,9 +8,9 @@
 </head>
 <body id="body">
     <header>
-        <button>Start game</button>
+        <button class="button_startGame">Start game</button>
         <h1>Memory Game</h1>
-        <button>Local storage</button>
+        <button class="local_storage">Result</button>
     </header>
     <section id="container">
         <div id="cards">
@@ -21,11 +21,11 @@
     </div>
     </section>
     <section id="endgame">
-            <img alt="gratulations" src="assets/Gratulation/c2172eab-8699-445f-927a-da003c6d91be.webp" id="gratulations">
-            <div id="result">
+            <img alt="gratulations" src="assets/Gratulation/c2172eab-8699-445f-927a-da003c6d91be.webp" class="gratulations">
+            <div class="result">
                 <h3>Your result</h3>
-                <p>Amount of moves:</p><span></span>
-                <p>Playing time:</p><span></span>
+                <p>Amount of moves: <span id="amount">35</span></p>
+                <p>Playing time: <span id="time">2:30</span></p>
             </div>
     </section>
     <footer>

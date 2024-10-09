@@ -1,112 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>random-game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body id="body">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="body">
     <header>
-        <button class="button_startGame">Start game</button>
-        <h1>Memory Game</h1>
-        <button class="local_storage">Results</button>
+      <button class="button_startGame">Start game</button>
+      <h1>Memory Game</h1>
+      <button class="local_storage">Results</button>
     </header>
     <section id="container">
-        <div id="cards">
+      <div id="cards">
         <div class="card">
-        <img class="monster" alt="img" src="assets/monsters/2001.i203.007_cartoon_monster_set-02.jpg" data-number="5">
-        <div class="back"></div>
-    </div>
-    </div>
+          <img
+            class="monster"
+            alt="img"
+            src="assets/monsters/2001.i203.007_cartoon_monster_set-02.jpg"
+            data-number="5"
+          />
+          <div class="back"></div>
+        </div>
+      </div>
     </section>
     <section id="endgame">
-            <img alt="gratulations" src="assets/Gratulation/c2172eab-8699-445f-927a-da003c6d91be.webp" class="gratulations">
-            <div class="result">
-                <h3>Your result</h3>
-                <p>Amount of moves: <span id="amount">35</span></p>
-                <p>Playing time: <span id="time">2:30</span></p>
-            </div>
+      <img
+        alt="gratulations"
+        src="assets/Gratulation/c2172eab-8699-445f-927a-da003c6d91be.webp"
+        class="gratulations"
+      />
+      <div class="result">
+        <h3>Your result</h3>
+        <p>Amount of moves: <span id="amount">35</span></p>
+        <p>Playing time: <span id="time">2:30</span></p>
+      </div>
     </section>
     <section class="table_result">
-        <div class="table">
-            <div class="button_cross"><img alt="cross" src="assets/pngwing.com (9).png" class="cross"></div>
-            <h3 id="header_results">Results</h3>
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Amount of moves</th>
-                    <th>Time</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Game</td>
-                    <td>35</td>
-                    <td>3:30</td>
-                </tr>
-            </table>
+      <div class="table">
+        <div class="button_cross">
+          <img alt="cross" src="assets/pngwing.com (9).png" class="cross" />
         </div>
+        <h3 id="header_results">Results</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Amount of moves</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="result_string">
+              <td class="game_index"></td>
+              <td class="amount"></td>
+              <td class="time_in_table"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
     <footer>
-<a href="https://github.com/AksanaBond" target="_blank" class="github_link"><div id="github">AksanaBond</div></a>
-<div id="year">2024</div>
-<a href="https://rs.school/courses/javascript-preschool-ru" target="_blank"><div class="logo"></div></a>
+      <a
+        href="https://github.com/AksanaBond"
+        target="_blank"
+        class="github_link"
+        ><div id="github">AksanaBond</div></a
+      >
+      <div id="year">2024</div>
+      <a
+        href="https://rs.school/courses/javascript-preschool-ru"
+        target="_blank"
+        ><div class="logo"></div
+      ></a>
     </footer>
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>

@@ -53,6 +53,9 @@ const cards = [
     src: "assets/monsters/xvp5_shog_230920.jpg",
   },
 ];
+let results = JSON.parse(localStorage.getItem("result") || "[]");
+localStorage.setItem("result", JSON.stringify(results));
+
 let cardsAll = [...shuffle(cards), ...shuffle(cards)];
 // random
 function shuffle(array) {
@@ -67,10 +70,10 @@ function shuffle(array) {
 // display all card
 const container = document.getElementById("cards");
 
-
 function fillcards() {
-    while (container.childElementCount > 1) {
-        container.removeChild(container.childNodes[0]);}
+  while (container.childElementCount > 1) {
+    container.removeChild(container.childNodes[0]);
+  }
   for (let i = 0; i < 23; i++) {
     container.innerHTML += card.outerHTML;
   }
@@ -94,8 +97,8 @@ let amountFlipcouple = 0;
 let startGametime;
 let endGametime;
 let gameTime;
-const amountOfmoves = document.getElementById('amount');
-const playTime = document.getElementById('time');
+const amountOfmoves = document.getElementById("amount");
+const playTime = document.getElementById("time");
 let cardsforFlip = document.querySelectorAll(".card");
 let flippedCard = false;
 let firstCard, secondCard;
@@ -104,8 +107,8 @@ function cardFlip() {
   if (!flippedCard) {
     flippedCard = true;
     firstCard = this;
-    if(!startGametime){
-        startGametime = new Date();
+    if (!startGametime) {
+      startGametime = new Date();
     }
     return;
   } else if (this !== firstCard) {
@@ -129,10 +132,17 @@ function compareCard() {
     secondCard.removeEventListener("click", cardFlip);
     coupleCard++;
     console.log(coupleCard);
-    if(coupleCard === 12){
-        gratulation.classList.add ("finish");
-        result.classList.add ("finish");
-        playTime.innerHTML =  timeFormat(endGametime);
+    if (coupleCard === 12) {
+      gratulation.classList.add("finish");
+      result.classList.add("finish");
+      playTime.innerHTML = timeFormat(endGametime);
+      const newRecord = {
+        amount: amountFlipcouple,
+        time: timeFormat(endGametime),
+      };
+      results.push(newRecord);
+      results = results.sort((a, b) => a.amount - b.amount).slice(0, 10);
+      localStorage.setItem("result", JSON.stringify(results));
     }
 
     return;
@@ -148,33 +158,57 @@ function resetcard() {
     cardToFlipBack1.classList.remove("flipped");
     cardToFlipBack2.classList.remove("flipped");
   }, 1000);
-};
-function timeFormat(time){
-        time = new Date();
-        gameTime = Math.floor((time - startGametime)/1000);
-        const min = Math.floor(gameTime / 60);
+}
+function timeFormat(time) {
+  time = new Date();
+  gameTime = Math.floor((time - startGametime) / 1000);
+  const min = Math.floor(gameTime / 60);
   const second = Math.floor(gameTime % 60);
   return `${min}:${second < 10 ? "0" : ""}${second}`;
 }
 //start game
-button_startGame.addEventListener('click', startGame);
-function startGame(){
-    cardsAll = [...shuffle(cards), ...shuffle(cards)];
-    fillcards();
-    startGametime = undefined;
-    amountFlipcouple = 0;
-    cardsforFlip = document.querySelectorAll(".card");
-    flippedCard = false;
-    coupleCard = 0;
-    cardsforFlip.forEach((card) => card.addEventListener("click", cardFlip));
-    gratulation.classList.remove ("finish");
-    result.classList.remove ("finish");
-};
-button_results.addEventListener('click', openResults);
-function openResults(){
-    table_result.classList.toggle ("open");
+button_startGame.addEventListener("click", startGame);
+function startGame() {
+  cardsAll = [...shuffle(cards), ...shuffle(cards)];
+  fillcards();
+  startGametime = undefined;
+  amountFlipcouple = 0;
+  cardsforFlip = document.querySelectorAll(".card");
+  flippedCard = false;
+  coupleCard = 0;
+  cardsforFlip.forEach((card) => {
+    card.addEventListener("click", cardFlip);
+    card.classList.remove("flipped");
+  });
+  gratulation.classList.remove("finish");
+  result.classList.remove("finish");
 }
-button_close.addEventListener('click', ()=>{
-    table_result.classList.remove("open");
-})
+button_results.addEventListener("click", openResults);
+function openResults() {
+  table_result.classList.toggle("open");
+  const recordTheresult = document.querySelector(".result_string");
+  const tbodyElement = recordTheresult.parentElement;
+  while (tbodyElement.childElementCount > 1) {
+    tbodyElement.removeChild(tbodyElement.childNodes[1]);
+  }
+  for (let i = 0; i < results.length - 1; i++) {
+    tbodyElement.innerHTML += recordTheresult.outerHTML;
+  }
 
+  const game_index = document.querySelectorAll(".game_index");
+
+  game_index.forEach((element, index) => {
+    element.innerHTML = index + 1;
+  });
+  const amountOfmovesinresults = document.querySelectorAll(".amount");
+  const timeinresults = document.querySelectorAll(".time_in_table");
+  amountOfmovesinresults.forEach((element, index) => {
+    element.innerHTML = results[index].amount;
+  });
+  timeinresults.forEach((element, index) => {
+    element.innerHTML = results[index].time;
+  });
+}
+button_close.addEventListener("click", () => {
+  table_result.classList.remove("open");
+});

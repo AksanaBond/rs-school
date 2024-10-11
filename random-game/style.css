@@ -13,7 +13,6 @@
 }
  body {
     margin: auto;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,6 +35,8 @@
     margin-top: 0;
     background:linear-gradient(to bottom  right,  rgb(110, 161, 89), rgb(38, 76, 23));
     display: flex;
+    gap: 15px;
+    align-items: center;
     justify-content: space-around;
  }
  footer {
@@ -48,12 +49,12 @@
     height: 50px;
  }
  h1 {
-    text-align: center;
     font-family: "Halloween spooky", sans-serif;
     letter-spacing: 5px;
     margin: 20px;
     color: #f7f6e8;
     text-shadow: 1px 1px 0 black;
+    width: 700px;
  }
  .logo {
     background: url(assets/rss-logo.svg);
@@ -63,7 +64,7 @@
  }
  #cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     width: 756px;
@@ -137,7 +138,9 @@
    font-size: 20px;
    cursor: pointer;
    width: 70px;
+   height: 55px;
  }
+
  button:hover {
    transform: scale(1.05);
    transition: transform 0.3s;
@@ -256,4 +259,18 @@ transition: transform 0.5s ease;
 }
 .cross {
    width: 25px;
+}
+@media screen and (max-width: 767px) {
+   .card {
+   width: 80px;
+    height: 100px;
+    border: 3px solid rgb(110, 161, 89);
+   }
+   #cards {
+   display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: auto;
+   }
 }

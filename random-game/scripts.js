@@ -6,6 +6,8 @@ const button_startGame = document.querySelector(".button_startGame");
 const button_results = document.querySelector(".local_storage");
 const table_result = document.querySelector(".table_result");
 const button_close = document.querySelector(".button_cross");
+const button_song = document.querySelector(".song");
+const img_song = document.querySelector('.img_song');
 const cards = [
   {
     number: "1",
@@ -227,3 +229,14 @@ button_close.addEventListener("click", () => {
 function playaudio (audio){
   audio.play();
 }
+//вкл выкл звук
+button_song.addEventListener('click', ()=>{
+  const audioAll = document.querySelectorAll('audio');
+  let newValue;
+  audioAll.forEach(element => {
+    element.muted = !element.muted;
+    newValue = element.muted;
+  })
+  img_song.src = newValue ? "assets/icon song/otklyuchenie_zvuka_e7wx9azdc5hh_32.png" : "assets/icon song/zvuk_vklyuchen_qipjm3lmgdxo_32.png";
+
+})

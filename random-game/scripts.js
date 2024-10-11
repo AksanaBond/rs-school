@@ -1,3 +1,6 @@
+const audio_flipcard = document.querySelector('#flipcard');
+const audio_opencouple = document.querySelector('#opencouple');
+const audio_gratulation= document.querySelector('#gratulation');
 const card = document.querySelector(".card");
 const button_startGame = document.querySelector(".button_startGame");
 const button_results = document.querySelector(".local_storage");
@@ -104,9 +107,11 @@ let flippedCard = false;
 let firstCard, secondCard;
 function cardFlip() {
   this.classList.add("flipped");
+  playaudio(audio_flipcard);
   if (!flippedCard) {
     flippedCard = true;
     firstCard = this;
+    
     if (!startGametime) {
       startGametime = new Date();
     }
@@ -130,9 +135,11 @@ function compareCard() {
   if (firstCard.dataset.number === secondCard.dataset.number) {
     firstCard.removeEventListener("click", cardFlip);
     secondCard.removeEventListener("click", cardFlip);
+    playaudio(audio_opencouple);
     coupleCard++;
     console.log(coupleCard);
     if (coupleCard === 12) {
+      playaudio(audio_gratulation);
       gratulation.classList.add("finish");
       result.classList.add("finish");
       playTime.innerHTML = timeFormat(endGametime);
@@ -177,6 +184,10 @@ function startGame() {
   flippedCard = false;
   coupleCard = 0;
   cardsforFlip.forEach((card) => {
+    card.classList.add('pre-flip'); 
+    setTimeout(() => {
+      card.classList.remove('pre-flip'); //  Убираем наклон после "вылета"
+    }, 100); 
     card.addEventListener("click", cardFlip);
     card.classList.remove("flipped");
   });
@@ -212,3 +223,7 @@ function openResults() {
 button_close.addEventListener("click", () => {
   table_result.classList.remove("open");
 });
+// audio
+function playaudio (audio){
+  audio.play();
+}

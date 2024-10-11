@@ -93,6 +93,9 @@
  .card.flipped {
    transform: rotateY(180deg);
  }
+ .card.pre-flip { 
+   transform: rotateY(45deg);
+}
  .monster {
     width: 100%;
     object-fit: cover;

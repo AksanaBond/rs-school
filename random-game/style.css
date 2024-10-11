@@ -1,0 +1,276 @@
+@font-face {
+    font-family: "Halloween spooky";
+    src: url(assets/font/halloween_spooky_2/Halloween\ Spooky.otf);
+    font-style: normal;
+}
+@font-face {
+   font-family: "Georgia";
+   src: url(assets/font/georgia/georgia-bold.ttf);
+   font-style: normal;
+}
+* {
+    box-sizing: border-box;
+}
+ body {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    background: url(assets/background/pngwing.com\ \(6\).png) no-repeat bottom right/30%;
+ }
+ body::before {
+    content: "";
+    background: url(assets/background/pngwing.com\ \(5\).png) no-repeat bottom right/20%; /* Второе фоновое изображение */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Помещаем псевдоэлемент под основное содержимое */
+    transform: rotate(180deg); /* Поворачиваем только второе изображение */
+  }
+ header {
+    margin-top: 0;
+    background:linear-gradient(to bottom  right,  rgb(110, 161, 89), rgb(38, 76, 23));
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+ }
+ footer {
+    margin-bottom: 0;
+    display: flex;
+    justify-content:center;
+    gap: 40px;
+    align-items: center;
+    align-content:start;
+    height: 50px;
+ }
+ h1 {
+    font-family: "Halloween spooky", sans-serif;
+    letter-spacing: 5px;
+    margin: 20px;
+    color: #f7f6e8;
+    text-shadow: 1px 1px 0 black;
+    width: 700px;
+ }
+ .logo {
+    background: url(assets/rss-logo.svg);
+    width: 30px;
+    height: 30px;
+
+ }
+ #cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 756px;
+    margin: auto;
+ }
+ .card {
+    width: 100px;
+    height: 120px;
+    border: 5px solid rgb(110, 161, 89);
+    border-radius: 2px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+ }
+ .card:hover {
+   box-shadow: 0px 2px 35px 14px rgba(14, 17, 13, 0.1);
+ }
+ .card:active {
+   transform: scale(0.96);
+   transition: transform 0.3s;
+ }
+ .card.flipped {
+   transform: rotateY(180deg);
+ }
+ .card.pre-flip { 
+   transform: rotateY(45deg);
+}
+ .monster {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+ }
+ .back {
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(to bottom  right,  rgb(110, 161, 89), rgb(38, 76, 23));
+   position: absolute;
+   backface-visibility: hidden;
+ }
+
+ #github {
+    font-family:"Halloween spooky", sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+ }
+ .github_link {
+    text-decoration: none;
+    color: black;
+ }
+ #year {
+    font-family:"Halloween spooky", sans-serif;
+    font-size: 13px;
+ }
+ #container {
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+ }
+ button {
+   background-color: #f7f6e8;
+   box-shadow: inset -20px 20px 20px rgba(0,0,0,.2), -20px 20px 30px rgba(0,0,0,.3);
+   border-radius: 40%;
+   font-family:"Halloween spooky", sans-serif; 
+   letter-spacing: 0.1rem;
+   border: 2px solid black;
+   font-size: 20px;
+   cursor: pointer;
+   width: 70px;
+   height: 55px;
+ }
+
+ button:hover {
+   transform: scale(1.05);
+   transition: transform 0.3s;
+ } 
+ button:active{
+   transform: scale(0.9);
+   transition: transform 0.3s;
+ }
+ /* gratulation modal*/
+ #endgame {
+display: flex;
+justify-content: center;
+align-items: center;
+ }
+ .gratulations {
+   position: fixed;
+   top:75px;
+   width: 900px;
+   height: 700px;
+   object-fit: cover;
+   display: none;
+ }
+ .result {
+   width: 300px;
+   height: 200px;
+   position: fixed;
+   top:420px;
+   background-color: #f7f6e8;
+   display: none;
+ }
+ h3 {
+   font-family:"Halloween spooky", sans-serif;
+    font-size: 30px;
+    text-align: center;
+ }
+p {
+   font-family: "Georgia", sans-serif;
+   font-size: 20px;
+   padding-left: 10px;
+}
+.finish {
+display: block;
+}
+span {
+   font-family:"Halloween spooky", sans-serif;
+    font-size: 25px;
+    letter-spacing: 0.2rem;
+}
+/* результат*/
+.table_result {
+   position: fixed;
+   top: 75px;
+   width: 100%;
+   height: 100%;
+   right: -100%;
+   background-color: rgba(56, 72, 48, 0.2);
+   display: none;
+   transition: right 0.3s ease-in-out;
+
+}
+ .open {
+   display: block;
+   position: fixed;
+   top: 75px;
+   width: 100%;
+   height: 100%;
+   right: 0;
+   background-color: rgba(56, 72, 48, 0.2);
+}
+.table {
+background-color: #f7f6e8;
+width: 500px;
+margin: 0 auto;
+padding: 2px;
+}
+#header_results {
+   padding-top: 5px;
+   margin: 0;
+}
+th {
+   font-family:"Halloween spooky", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+td {
+   font-family: "Georgia", sans-serif;
+   font-size: 18px;
+   text-align: center;
+   text-shadow: 1px 1px 1px rgb(110, 161, 89);
+   padding: 10px;
+}
+table {
+   margin: 0 auto;
+}
+.button_cross {
+   width: 30px;
+   height: 30px;
+   margin-left: 460px;
+   margin-top: 3px;
+   box-shadow: inset 0 0 15px rgb(58, 105, 46, 0.2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   cursor: pointer;
+}
+.button_cross:hover {
+   transform: scale(1.1);
+   transition: transform 0.3s;
+}
+.button_cross:active {
+transform: rotate(180deg);
+transition: transform 0.5s ease;
+}
+.cross {
+   width: 25px;
+}
+@media screen and (max-width: 767px) {
+   .card {
+   width: 80px;
+    height: 100px;
+    border: 3px solid rgb(110, 161, 89);
+   }
+   #cards {
+   display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: auto;
+   }
+}

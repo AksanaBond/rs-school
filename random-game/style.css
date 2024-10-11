@@ -35,9 +35,10 @@
     margin-top: 0;
     background:linear-gradient(to bottom  right,  rgb(110, 161, 89), rgb(38, 76, 23));
     display: flex;
-    gap: 15px;
+    gap: 5px;
     align-items: center;
     justify-content: space-around;
+    padding-right: 15px;
  }
  footer {
     margin-bottom: 0;
@@ -54,7 +55,7 @@
     margin: 20px;
     color: #f7f6e8;
     text-shadow: 1px 1px 0 black;
-    width: 700px;
+    width: 750px;
  }
  .logo {
     background: url(assets/rss-logo.svg);
@@ -135,9 +136,11 @@
    font-family:"Halloween spooky", sans-serif; 
    letter-spacing: 0.1rem;
    border: 2px solid black;
-   font-size: 20px;
+   font-size: 16px;
+   padding: 3px;
    cursor: pointer;
    width: 70px;
+   color: black;
    height: 55px;
  }
 
@@ -272,5 +275,11 @@ transition: transform 0.5s ease;
     gap: 10px;
     flex-wrap: wrap;
     margin: auto;
+   }
+   .table {
+      width: 350px;
+   }
+   .button_cross {
+      margin-left: 300px;
    }
 }
